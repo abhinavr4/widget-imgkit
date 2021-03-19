@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ImageKit Media Library Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Media Library -->
+  <div class="wrapper">
+    <div id="container"></div>
+  </div>
+</body>
+
+<script src="https://unpkg.com/imagekit-media-library-widget/dist/imagekit-media-library-widget.min.js"></script>
+
+<script>
+// configuration options
+const config = {
+  container: '#container',   // the element in which the widget will be rendered
+  className: 'media-library-widget',
+  dimensions: {
+    height: '100%',
+    width: '100%',
+  },
+  view: 'modal',  // modal | inline
+  renderOpenButton: true  // false | true (default)
+};
+
+// define callback handler  
+function callback (payload) {
+  // this is the callback handler
+  // … consume json payload …
+  console.log('Image data:', payload.data);
+}
+
+// instantiate the plugin
+const mediaLibraryWidget = new IKMediaLibraryWidget(config, callback);
+</script>
+
+</html>
